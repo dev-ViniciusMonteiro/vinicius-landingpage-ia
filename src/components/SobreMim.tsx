@@ -12,7 +12,7 @@ const SobreMim = () => {
           alt="Vinicius Monteiro"
           fill
           style={{ objectFit: "cover" }}
-          className="opacity-10"
+          className="opacity-5"
         />
       </div>
 
