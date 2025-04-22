@@ -75,7 +75,7 @@ const Chat = () => {
           </div>
 
           {/* Resposta */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 min-h-[100px] whitespace-pre-wrap text-sm">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 min-h-[100px] max-h-[calc(100vh-400px)] md:max-h-[calc(100vh-300px)] overflow-y-auto whitespace-pre-wrap text-sm">
             {loading ? (
               <div className="flex items-center gap-2">
                 <div className="animate-spin h-5 w-5 border-2 border-t-transparent border-white rounded-full"></div>

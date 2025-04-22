@@ -17,7 +17,7 @@ const SobreMim = () => {
       </div>
 
       {/* Conteúdo */}
-      <div className="sobre-content">
+      <div className="sobre-content align-center flex flex-col justify-center items-center h-screen p-4">
         <h1 className="sobre-title">Vinicius Monteiro</h1>
         <p className="sobre-subtitle">🧠 Software Engineer | Fullstack | Cloud | IA</p>
 
@@ -29,7 +29,7 @@ const SobreMim = () => {
             Formado em Ciência da Computação pela UNIFAJ, com foco em soluções escaláveis, cloud computing e automações inteligentes.
           </p>
         </div>
-
+{/*  
         <div className="sobre-cards">
           <div className="sobre-card">
             <h3 className="sobre-card-title">💻 Tecnologias</h3>
@@ -49,7 +49,7 @@ const SobreMim = () => {
               <li>GenAI Technical Certification</li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
         <div className="sobre-links">
           <a href="https://github.com/dev-ViniciusMonteiro" target="_blank">GitHub</a>
