@@ -20,13 +20,7 @@ const SobreMim = () => {
       <div className="sobre-content align-center flex flex-col justify-center items-center h-screen p-4">
         <h1 className="sobre-title">Vinicius Monteiro</h1>
         <p className="sobre-subtitle flex items-center gap-2">
-    <Image 
-      src="/myLogo.png" 
-      alt="Logo Vinicius" 
-      width={24} 
-      height={24} 
-      className="w-6 h-6" 
-    />
+        💻
     Software Engineer
   </p>
 
