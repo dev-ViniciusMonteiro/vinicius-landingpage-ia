@@ -69,13 +69,17 @@ const Chat = () => {
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+              onKeyDown={(e) => !loading && e.key === "Enter" && sendMessage()}
               className="flex-1 p-3 rounded-md bg-[#1f232c] text-white border border-gray-700 outline-none"
               placeholder="Digite sua pergunta a VMAI..."
+              disabled={loading}
             />
             <button
               onClick={sendMessage}
-              className="px-6 py-2 rounded-md bg-white text-black font-semibold hover:bg-gray-200 transition"
+              className={`px-6 py-2 rounded-md font-semibold transition ${
+                loading ? "bg-gray-500 text-gray-300 cursor-not-allowed" : "bg-white text-black hover:bg-gray-200"
+              }`}
+              disabled={loading}
             >
               Perguntar
             </button>
