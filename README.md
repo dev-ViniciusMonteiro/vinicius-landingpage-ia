@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💬 viniciusdev-ia-chatbot
 
-## Getting Started
+Projeto desenvolvido com foco em uma experiência moderna e interativa, unindo um portfólio pessoal à integração com inteligência artificial. Criado com **Next.js (App Router)**, **React**, **TypeScript** e **CSS puro**, o layout é inspirado em referências como **Starlink** e **Rocketseat**.
 
-First, run the development server:
+---
+
+## ✨ Funcionalidades
+
+- Interface moderna e responsiva com design escuro
+- Seção **Sobre Mim** com informações profissionais, certificações e tecnologias
+- Seção **Chat com IA** com comunicação via API do [OpenRouter.ai](https://openrouter.ai/)
+- Histórico de mensagens mantido para contexto nas respostas
+- Estilização 100% em CSS puro, com organização modular
+- Imagem de fundo personalizada e discreta (`viniciusrobot.png`)
+- Suporte completo a desktop e mobile
+
+---
+
+## 🧠 Tecnologias Utilizadas
+
+- [Next.js 14+ (App Router)](https://nextjs.org/)
+- [React + TypeScript](https://reactjs.org/)
+- [CSS Puro](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [OpenRouter API](https://openrouter.ai/)
+- [Marked.js](https://marked.js.org/) – renderização de Markdown na resposta da IA
+
+---
+
+## 📁 Estrutura do Projeto
+
+src/ ├── app/ │ └── api/ │ └── chat/ │ └── route.ts # Rota para consumo da IA (OpenRouter) ├── components/ │ ├── SobreMim.tsx # Seção pessoal com habilidades e certificações │ └── Chat.tsx # Interface e lógica do chat com IA ├── data/ │ └── personalInfo.ts # Dados usados na seção Sobre Mim ├── styles/ │ └── sobre-mim.css # CSS modularizado do Sobre Mim public/ └── viniciusrobot.png # Imagem de fundo do chat
+
+yaml
+Copy
+Edit
+
+---
+
+## ⚙️ Instalação e Execução
+
+### 1. Clone o repositório
 
 ```bash
+git clone https://github.com/dev-ViniciusMonteiro/viniciusdev-ia-chatbot.git
+cd viniciusdev-ia-chatbot
+2. Instale as dependências
+
+npm install
+3. Configure a chave da IA
+Crie um arquivo .env.local na raiz do projeto com a seguinte variável:
+
+
+OPENROUTER_API_KEY=sk-or-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Você pode gerar sua chave no site: https://openrouter.ai/
+
+4. Execute o projeto localmente
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Acesse no navegador: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔌 Teste da API via Postman
+Endpoint:
+POST /api/chat
+Body (JSON):
+{
+  "messageHistory": [
+    { "role": "user", "content": "Qual a capital do Brasil?" }
+  ]
+}
+📸 Prints da Interface
+(Adicione suas capturas de tela em public/ para visualização visual no README)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Sobre Mim](./public/preview-sobremim.png)
+![Chat com IA](./public/preview-chat.png)
+👨‍💻 Sobre o Autor
+Vinicius Monteiro
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔗 viniciusdev.com
 
-## Learn More
+💼 LinkedIn
 
-To learn more about Next.js, take a look at the following resources:
+💻 GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📄 Licença
+Este projeto está licenciado sob a MIT License.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Se quiser, posso gerar esse `README.md` direto como um arquivo `.md` e colocar no canvas para você revisar. Deseja isso?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+

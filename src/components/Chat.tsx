@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import "@/styles/sobre-mim.css";
 
 const Chat = () => {
   const [userInput, setUserInput] = useState("");
@@ -36,23 +37,29 @@ const Chat = () => {
     }
   };
 
+  const formatResponse = (text: string) => {
+    // Substitui **texto** por <strong>texto</strong>
+    const formattedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    return { __html: formattedText };
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* Imagem de fundo com opacidade visível */}
       <div className="inset-0 -z-10">
         <Image
-          src="/viniciusrobot.png"
+          src="/universe_right_half.png"
           alt="Vinicius Monteiro"
           fill
           style={{ objectFit: "cover" }}
-          className="opacity-5"
+          className="opacity-25"
         />
       </div>
 
       {/* Conteúdo centralizado */}
       <div className="w-full max-w-3xl px-4 flex flex-col items-center justify-center min-h-screen z-10">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-center">
-        Use o chat para saber mais sobre minha jornada profissional, áreas de atuação e muito mais. 🤖
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-center text-white drop-shadow-lg">
+          Meu portfólio em tempo real? Fale com a VMAI 🤖
         </h2>
 
         <div className="w-full flex flex-col gap-8">
@@ -62,27 +69,35 @@ const Chat = () => {
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+              onKeyDown={(e) => !loading && e.key === "Enter" && sendMessage()}
               className="flex-1 p-3 rounded-md bg-[#1f232c] text-white border border-gray-700 outline-none"
-              placeholder="Digite sua pergunta..."
+              placeholder="Digite sua pergunta a VMAI..."
+              disabled={loading}
             />
             <button
               onClick={sendMessage}
-              className="px-6 py-2 rounded-md bg-white text-black font-semibold hover:bg-gray-200 transition"
+              className={`px-6 py-2 rounded-md font-semibold transition ${
+                loading ? "bg-gray-500 text-gray-300 cursor-not-allowed" : "bg-white text-black hover:bg-gray-200"
+              }`}
+              disabled={loading}
             >
               Perguntar
             </button>
           </div>
 
           {/* Resposta */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 min-h-[100px] whitespace-pre-wrap text-sm">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 min-h-[100px] max-h-[calc(100vh-400px)] md:max-h-[calc(100vh-300px)] overflow-y-auto whitespace-pre-wrap text-sm">
             {loading ? (
               <div className="flex items-center gap-2">
                 <div className="animate-spin h-5 w-5 border-2 border-t-transparent border-white rounded-full"></div>
                 Carregando resposta...
               </div>
             ) : (
-              response || "Envie uma pergunta para começar."
+              <div
+                dangerouslySetInnerHTML={formatResponse(
+                  response || 'Envie uma pergunta para começar. \nExemplos: \n"A VMAI pode montar um portfólio resumido com os destaques do Vinicius?", \n"Com quais tecnologias ele trabalha?"'
+                )}
+              />
             )}
           </div>
         </div>
