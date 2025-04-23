@@ -95,7 +95,7 @@ const Chat = () => {
             ) : (
               <div
                 dangerouslySetInnerHTML={formatResponse(
-                  response || 'Envie uma pergunta para começar. \nExemplos: \n"Quais projetos o Vinicius já desenvolveu?", \n"Com quais tecnologias ele trabalha?", \n"Ele tem experiência com e-commerce?", \n"Qual a formação acadêmica dele?"'
+                  response || 'Envie uma pergunta para começar. \nExemplos: \n"A VMAI pode montar um portfólio resumido com os destaques do Vinicius?", \n"Com quais tecnologias ele trabalha?"'
                 )}
               />
             )}
