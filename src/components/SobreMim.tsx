@@ -8,25 +8,34 @@ const SobreMim = () => {
       {/* Imagem de fundo com opacidade visível */}
       <div className="inset-0 -z-10">
         <Image
-          src="/vinicius-bg.png"
+          src="/universe_left_half.png"
           alt="Vinicius Monteiro"
           fill
           style={{ objectFit: "cover" }}
-          className="opacity-5"
+          className="opacity-25"
         />
       </div>
 
       {/* Conteúdo */}
       <div className="sobre-content align-center flex flex-col justify-center items-center h-screen p-4">
         <h1 className="sobre-title">Vinicius Monteiro</h1>
-        <p className="sobre-subtitle">🧠 Software Engineer | Fullstack | Cloud | IA</p>
+        <p className="sobre-subtitle flex items-center gap-2">
+    <Image 
+      src="/myLogo.png" 
+      alt="Logo Vinicius" 
+      width={24} 
+      height={24} 
+      className="w-6 h-6" 
+    />
+    Software Engineer
+  </p>
 
         <div className="sobre-box">
           <p className="sobre-text">
-            Desenvolvedor fullstack com experiência em arquitetura de software, integrações e inteligência artificial aplicada. Atuei em projetos estratégicos para empresas como Natura, Qualicorp, UOL EdTech e Yamaha.
+            Código é apenas o começo. O que me diferencia é a capacidade de transformar problemas complexos em soluções elegantes e escaláveis.
           </p>
           <p className="sobre-text">
-            Formado em Ciência da Computação pela UNIFAJ, com foco em soluções escaláveis, cloud computing e automações inteligentes.
+            Conheça essa mentalidade em ação conversando com a VMAI, minha IA pessoal que apresenta minha história profissional como ninguém.
           </p>
         </div>
 {/*  

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import "@/styles/sobre-mim.css";
 
 const Chat = () => {
   const [userInput, setUserInput] = useState("");
@@ -36,23 +37,29 @@ const Chat = () => {
     }
   };
 
+  const formatResponse = (text: string) => {
+    // Substitui **texto** por <strong>texto</strong>
+    const formattedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    return { __html: formattedText };
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* Imagem de fundo com opacidade visível */}
       <div className="inset-0 -z-10">
         <Image
-          src="/viniciusrobot.png"
+          src="/universe_right_half.png"
           alt="Vinicius Monteiro"
           fill
           style={{ objectFit: "cover" }}
-          className="opacity-5"
+          className="opacity-25"
         />
       </div>
 
       {/* Conteúdo centralizado */}
       <div className="w-full max-w-3xl px-4 flex flex-col items-center justify-center min-h-screen z-10">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-center">
-        Use o chat para saber mais sobre minha jornada profissional, áreas de atuação e muito mais. 🤖
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 text-center text-white drop-shadow-lg">
+          Meu portfólio em tempo real? Fale com a VMAI 🤖
         </h2>
 
         <div className="w-full flex flex-col gap-8">
@@ -64,7 +71,7 @@ const Chat = () => {
               onChange={(e) => setUserInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               className="flex-1 p-3 rounded-md bg-[#1f232c] text-white border border-gray-700 outline-none"
-              placeholder="Digite sua pergunta..."
+              placeholder="Digite sua pergunta a VMAI..."
             />
             <button
               onClick={sendMessage}
@@ -82,7 +89,11 @@ const Chat = () => {
                 Carregando resposta...
               </div>
             ) : (
-              response || "Envie uma pergunta para começar."
+              <div
+                dangerouslySetInnerHTML={formatResponse(
+                  response || 'Envie uma pergunta para começar. \nExemplos: \n"Quais projetos o Vinicius já desenvolveu?", \n"Com quais tecnologias ele trabalha?", \n"Ele tem experiência com e-commerce?", \n"Qual a formação acadêmica dele?"'
+                )}
+              />
             )}
           </div>
         </div>
