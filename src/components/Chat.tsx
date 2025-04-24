@@ -95,7 +95,7 @@ const Chat = () => {
             ) : (
               <div
                 dangerouslySetInnerHTML={formatResponse(
-                  response || 'Envie uma pergunta para começar. \nExemplos: \n"A VMAI pode montar um portfólio resumido com os destaques do Vinicius?", \n"Com quais tecnologias ele trabalha?"'
+                  response || 'Olá! Sou a VMAI, a assistente pessoal do Vinicius Monteiro Orlandi. Posso ajudá-lo a obter informações sobre a carreira, trajetória, habilidades e conquistas profissionais do Vinicius. Você pode me perguntar, por exemplo: \n\n- Pode mostrar o currículo de Vinicius detalhado?\n- Quais tecnologias ele domina?\n- Quais certificações possui?\n- Como entrar em contato com ele?\n\nFique à vontade para fazer suas perguntas relacionadas ao Vinicius'
                 )}
               />
             )}

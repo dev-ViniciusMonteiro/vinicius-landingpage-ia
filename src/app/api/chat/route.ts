@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     systemPrompt.push({
       role: "user",
-      content: `Histórico de mensagens para contexto:\n\n${context}\n\nAgora, responda à última mensagem ou informação apenas.`
+      content: `Histórico de mensagens para contexto:\n\n${context}\n\nAgora, responda à última mensagem ou informação apenas (sempre respond sobre vinicius).`
     })
 
 
@@ -35,6 +35,9 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         model: MODEL,
         messages: systemPrompt,
+        temperature: 0.7, // Aumenta a aleatoriedade das respostas
+        max_tokens: 700, // Limite de tokens para a resposta
+        top_p: 1, // isso ajuda a evitar respostas repetitivas
       }),
     });
 
