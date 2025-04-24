@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import "@/styles/sobre-mim.css";
 
@@ -9,6 +10,14 @@ const Chat = () => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
   const [history, setHistory] = useState<{ role: string; content: string }[]>([]);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const quest = searchParams.get("quest");
+    if (quest) {
+      setUserInput(quest);
+    }
+  }, [searchParams]);
 
   const sendMessage = async () => {
     const message = userInput.trim();
@@ -95,7 +104,7 @@ const Chat = () => {
             ) : (
               <div
                 dangerouslySetInnerHTML={formatResponse(
-                  response || 'Olá! Sou a VMAI, a assistente pessoal do Vinicius Monteiro Orlandi. Posso ajudá-lo a obter informações sobre a carreira, trajetória, habilidades e conquistas profissionais do Vinicius. Você pode me perguntar, por exemplo: \n\n- Pode mostrar o currículo de Vinicius detalhado?\n- Quais tecnologias ele domina?\n- Quais certificações possui?\n- Como entrar em contato com ele?\n\nFique à vontade para fazer suas perguntas relacionadas ao Vinicius'
+                  response || 'Olá! Sou a VMAI, a assistente pessoal do Vinicius Monteiro Orlandi. Posso ajudá-lo a obter informações sobre a carreira, trajetória, habilidades e conquistas profissionais do Vinicius. Você pode me perguntar, por exemplo: \n\n- Pode mostrar o currículo de Vinicius detalhado?\n- O que é VMAI?\n- Quais certificações possui?\n- Como entrar em contato com ele?\n\nFique à vontade para fazer suas perguntas relacionadas ao Vinicius'
                 )}
               />
             )}
