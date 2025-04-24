@@ -42,7 +42,7 @@ const Chat = () => {
     let formattedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
     // Torna links iniciados com https://www clicáveis
     formattedText = formattedText.replace(
-      /(https:\/\/[^\s]+)/g,
+      /(https:\/\/[^\s\]\}\)]+)/g,
       '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-500 underline">$1</a>'
     );
     return { __html: formattedText };
