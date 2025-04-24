@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import Image from "next/image";
 import "@/styles/sobre-mim.css";
 
@@ -10,14 +9,6 @@ const Chat = () => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("");
   const [history, setHistory] = useState<{ role: string; content: string }[]>([]);
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const quest = searchParams.get("quest");
-    if (quest) {
-      setUserInput(quest);
-    }
-  }, [searchParams]);
 
   const sendMessage = async () => {
     const message = userInput.trim();
