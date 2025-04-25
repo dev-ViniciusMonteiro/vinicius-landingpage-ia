@@ -6,7 +6,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import useScrollToChat from "@/hooks/useScrollToChat";
 
 export default function Home() {
-  const isMobile = useIsMobile();
+  const { isMobile, isAtBottom } = useIsMobile();
   const scrollToChat = useScrollToChat();
 
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <div id="chat-section" className="w-full md:w-1/2 bg-gray-50">
         <Chat />
       </div>
-      {isMobile && (
+      {isMobile && !isAtBottom && (
         <button
           onClick={scrollToChat}
           className="fixed bottom-4 right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg flex items-center justify-center"
