@@ -2,26 +2,12 @@
 
 import SobreMim from "@/components/SobreMim";
 import Chat from "@/components/Chat";
-import { useEffect, useState } from "react";
+import useIsMobile from "@/hooks/useIsMobile";
+import useScrollToChat from "@/hooks/useScrollToChat";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const scrollToChat = () => {
-    const chatSection = document.querySelector("#chat-section");
-    if (chatSection) {
-      chatSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const isMobile = useIsMobile();
+  const scrollToChat = useScrollToChat();
 
   return (
     <main className="min-h-screen flex flex-col md:flex-row">
