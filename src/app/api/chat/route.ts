@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     systemPrompt.push({
       role: "user",
-      content: `Histórico de mensagens para contexto:\n\n${context}\n\nAgora, responda à última mensagem ou informação apenas (sempre respond sobre vinicius).`
+      content: `Histórico de mensagens para contexto:\n\n${context}\n\nAgora, responda à última mensagem ou informação apenas (sempre responde sobre vinicius).`
     })
 
 
