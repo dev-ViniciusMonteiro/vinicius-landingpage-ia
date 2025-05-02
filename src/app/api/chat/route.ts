@@ -4,7 +4,7 @@ import { systemPrompt } from "./prompts";
 
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const API_KEY = process.env.OPENROUTER_API_KEY!;
-const HTTP_REFERER = "https://www.viniciusdev.com";
+const HTTP_REFERER = "https://www.vmai.com.br/";
 const X_TITLE = "viniciusdev";
 const MODEL = "openai/gpt-4.1-nano";
 
